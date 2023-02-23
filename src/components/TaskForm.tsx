@@ -21,7 +21,10 @@ export default function Form({hooks: {addTask}}: FormProps) {
   }
   
   return <>
-    <form onSubmit={handleSubmit}>
+    <form 
+      onSubmit={handleSubmit}
+      className="flex flex-nowrap"
+    >
       <input 
         type="text" 
         value={taskInput}
