@@ -26,7 +26,7 @@ export default function Form({hooks: {addTask}}: FormProps) {
         type="text" 
         value={taskInput}
         onChange={(e) => setTaskInput(e.target.value)}
-        className="border border-black rounded-l-2xl p-2 pl-3 border-collapse focus:outline-none"
+        className="border border-black rounded-l-2xl p-2 pl-3 w-60 border-collapse focus:outline-none"
       />
       <input 
         type="submit"
