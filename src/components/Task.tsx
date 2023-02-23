@@ -33,11 +33,11 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
   }
 
   return <>
-    <li className="list-none flex justify-between">
+    <li className="list-none flex justify-between bg-slate-200 w-full py-3 px-4 outline-b outline-white">
       <span className="inline-block mr-auto">
         <input 
           type="checkbox"
-          checked={complete}
+          defaultChecked={complete}
           onClick={handleCheck}
           className="mr-2"
         />
@@ -55,7 +55,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
       <span className="flex items-center">
         <button 
           onClick={handleEdit}
-          className="flex items-center justify-center mr-4 border border-black w-8 h-5 relative before:h-5 before:w-1 before:bg-cyan-500 before:absolute before:-z-10 before:right-2"
+          className="flex items-center justify-center mr-4 border border-black w-8 h-5 relative bg-white before:h-[calc(1.25rem-2px)] before:w-1 before:bg-cyan-500 before:absolute before:right-2"
         />
         <button 
           onClick={handleDelete}

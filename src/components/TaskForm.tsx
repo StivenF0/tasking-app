@@ -31,7 +31,7 @@ export default function Form({hooks: {addTask}}: FormProps) {
       <input 
         type="submit"
         value="Add"
-        className="border border-black rounded-r-2xl p-2 border-l-0 font-semibold cursor-pointer"
+        className="border border-black rounded-r-2xl p-2 border-l-0 font-semibold cursor-pointer bg-orange-400 text-white"
       />
     </form>
   </>

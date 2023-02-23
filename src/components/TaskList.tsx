@@ -14,17 +14,18 @@ interface TaskListProps {
 export default function TaskList({hooks: {tasks, filterOption, removeTask, editTask, checkTask}}: TaskListProps) {
   return <>
     <div 
-      className="overflow-hidden border-black border w-72 h-72 rounded-2xl"
+      className="overflow-hidden border-black border w-72 h-72 rounded-2xl bg-white"
     >
       <ul 
-        className="p-4 w-full h-full flex flex-col gap-1 overflow-x-hidden overflow-y-auto"
+        className="w-full h-full flex flex-col gap-1 overflow-x-hidden overflow-y-auto"
       >
         {tasks.map((task) =>{
-          if (filterOption === "pending" && task.complete) return
-          if (filterOption === "complete" && !task.complete) return
+          if (filterOption === "pending" && task.complete) return null
+          if (filterOption === "complete" && !task.complete) return null
 
           return <>
             <Task
+              key={task.id}
               id={task.id}
               text={task.text}
               complete={task.complete}
