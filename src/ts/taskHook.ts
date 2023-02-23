@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import TaskType from "./taskType"
+import Urgency from "./Urgency"
 
 export default function useTaskList() {
   const storedTasks = localStorage.getItem("tasks") || "[]"
@@ -9,13 +10,16 @@ export default function useTaskList() {
     localStorage.setItem("tasks", JSON.stringify(tasks))
   })
 
-  const addTask = (text: string) => {
+  const addTask = (params: {text: string, urgency: Urgency}) => {
+    const { text, urgency } = params;
+
     setTasks([
       ...tasks,
       {
         id: Date.now(),
         text: text,
-        complete: false
+        complete: false,
+        urgency: urgency
       },
     ])
   }
@@ -33,6 +37,7 @@ export default function useTaskList() {
           id: task.id,
           text: text,
           complete: task.complete,
+          urgency: task.urgency
         } as TaskType
       })
     )
@@ -47,6 +52,7 @@ export default function useTaskList() {
           id: task.id,
           text: task.text,
           complete: !task.complete,
+          urgency: task.urgency
         } as TaskType
       })
     )

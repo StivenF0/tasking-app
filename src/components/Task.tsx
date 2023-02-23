@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react"
+import Urgency from "../ts/Urgency"
 
 interface TaskProps {
   id: number
   text: string
-  complete: boolean
+  complete: boolean,
   hooks: {
     removeTask: (id: number) => void
     editTask: (id: number, text: string) => void
@@ -33,7 +34,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
   }
 
   return <>
-    <li className="list-none flex justify-between">
+    <li key={id} className="list-none flex justify-between m-2">
       <span className="inline-block mr-auto">
         <input 
           type="checkbox"
@@ -61,6 +62,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
           onClick={handleDelete}
           className="bg-red-500 h-6 w-1 flex items-center justify-center relative rotate-45 before:bg-red-500 before:absolute before:h-6 before before:w-1 before:-rotate-90"
         />
+
       </span>
     </li>
   </>
