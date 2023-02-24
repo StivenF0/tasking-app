@@ -34,7 +34,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
 
   return <>
     <li className="list-none flex justify-between bg-slate-200 w-full py-3 px-4 outline-b outline-white">
-      <span className="inline-block mr-auto">
+      <span className="flex mr-auto w-48">
         <input 
           type="checkbox"
           defaultChecked={complete}
