@@ -34,7 +34,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
 
   return <>
     <li className="list-none flex justify-between bg-slate-200 w-full py-3 px-4 outline-b outline-white">
-      <span className="inline-block mr-auto">
+      <span className="flex mr-auto w-48">
         <input 
           type="checkbox"
           defaultChecked={complete}
@@ -44,7 +44,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
         {!editing 
           ? complete 
             ? <s className="text-gray-400">{text}</s>
-            : <span>{text}</span>
+            : <span className="w-full overflow-hidden overflow-ellipsis whitespace-pre-wrap break-words">{text}</span>
           : <input 
               value={taskInput}
               onChange={(e) => setTaskInput(e.target.value)}
