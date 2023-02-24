@@ -44,7 +44,7 @@ export default function Task({id, text, complete, hooks: {removeTask, editTask, 
         {!editing 
           ? complete 
             ? <s className="text-gray-400">{text}</s>
-            : <span>{text}</span>
+            : <span className="w-full overflow-hidden overflow-ellipsis whitespace-pre-wrap break-words">{text}</span>
           : <input 
               value={taskInput}
               onChange={(e) => setTaskInput(e.target.value)}
